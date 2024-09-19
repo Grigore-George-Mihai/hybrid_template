@@ -26,7 +26,7 @@ gem "devise"
 gem "devise-jwt"
 
 # Grape
-gem "grape", "~> 2.1.3"
+gem "grape", "~> 2.2.0"
 gem "grape-entity"
 gem "grape-swagger"
 gem "grape-swagger-entity"
