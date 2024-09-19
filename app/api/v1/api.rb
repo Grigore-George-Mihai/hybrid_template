@@ -22,13 +22,6 @@ module V1
       end
     end
 
-    # Protected endpoint (JWT required)
-    desc "Protected data (JWT required)"
-    get :protected_data do
-      authenticate_user!
-      { message: "This data is protected.", user: current_user }
-    end
-
     # Mount endpoints - Used by generator do not delete
     mount V1::Resources::Auth
   end
