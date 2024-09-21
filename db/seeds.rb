@@ -13,10 +13,10 @@
 unless User.exists?
   FactoryBot.create(
     :user,
-    first_name: "admin",
-    last_name: "admin",
-    email: ENV.fetch("GLOBAL_EMAIL", nil),
-    password: ENV.fetch("GLOBAL_PASS", nil),
-    password_confirmation: ENV.fetch("GLOBAL_PASS", nil)
+    first_name: "default",
+    last_name: "user",
+    email: ENV.fetch("DEFAULT_USER_EMAIL", nil),
+    password: ENV.fetch("DEFAULT_USER_PASSWORD", nil),
+    password_confirmation: ENV.fetch("DEFAULT_USER_PASSWORD", nil)
   )
 end

@@ -52,6 +52,7 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 
 ### Background Processing
 - [Sidekiq](https://github.com/mperham/sidekiq): Efficient background processing for Ruby applications.
+- [Redis](https://github.com/redis/redis-rb): In-memory data structure store used by Sidekiq for managing background job queues, scheduling, and retries.
 
 ### Decorator and Forms
 - [Draper](https://github.com/drapergem/draper): Helps in decorating models with additional presentation logic.
