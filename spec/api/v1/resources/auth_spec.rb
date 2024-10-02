@@ -29,4 +29,18 @@ RSpec.describe "Auth API", type: :request do
       expect(response_body[:auth]).to include(:token)
     end
   end
+
+  describe "DELETE /api/v1/auth/logout" do
+    it "logs out the user and returns a 204 status" do
+      token = sign_in(valid_user)
+
+      delete "/api/v1/auth/logout", headers: { "Authorization" => "Bearer #{token}" }
+      expect(response).to have_http_status(:no_content)
+    end
+
+    it "returns 401 if no token is provided" do
+      delete "/api/v1/auth/logout"
+      expect(response).to have_http_status(:unauthorized)
+    end
+  end
 end

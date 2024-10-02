@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   # Mount Sidekiq web UI at /sidekiq for background job monitoring
   authenticate :user do
     mount Sidekiq::Web => "/sidekiq"
-    mount GrapeSwaggerRails::Engine => "/swagger"
   end
+
+  mount GrapeSwaggerRails::Engine => "/swagger"
 
   # Define root route
   root "home#index"

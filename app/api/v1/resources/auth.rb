@@ -51,10 +51,14 @@ module V1
           end
         end
 
-        desc "Logout the user"
+        desc "Logout the JWT user"
         delete :logout do
-          env["warden"].logout
-          status 204
+          if current_user
+            env["warden"].logout(:jwt)
+            status 204
+          else
+            error!("401 Unauthorized", 401)
+          end
         end
       end
     end
