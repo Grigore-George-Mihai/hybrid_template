@@ -1,4 +1,4 @@
-# Monolith Template
+# Hybrid Template
 
 This repository serves as a hybrid template for a Ruby on Rails (RoR) application with grape. It includes a pre-configured setup with essential gems and tools to streamline development.
 
@@ -27,7 +27,8 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 
 - Update the project name to reflect your application.
 - A basic implementation of [Devise](https://github.com/heartcombo/devise) for web logins and [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt) for API authentication is included. You can modify the configuration as needed to suit your specific authentication requirements.
-- Modify the [Scout APM](https://github.com/scoutapp/scout_apm_ruby) settings as needed, or remove them if application performance monitoring is not required.
+- Modify the [Scout APM](https://github.com/scoutapp/scout_apm_ruby) settings as needed, or remove it if performance tracking is not required.
+- Modify the [Rollbar](https://github.com/rollbar/rollbar-gem) settings as needed, or remove it if error tracking is not required.
 - Run the following rake task to create your environment files:
     ```bash
     rake env:setup
@@ -63,6 +64,9 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 - [Scout APM](https://github.com/scoutapp/scout_apm_ruby): Application monitoring tool.
 - [Bullet](https://github.com/flyerhzm/bullet): Detects N+1 queries and unused eager loading.
 - [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler): Performance profiling tool.
+
+### Error Tracking
+- [Rollbar](https://github.com/rollbar/rollbar-gem): Real-time error tracking and reporting.
 
 ### Debugging
 - [Byebug](https://github.com/deivid-rodriguez/byebug): Debugging tool for Ruby applications.
