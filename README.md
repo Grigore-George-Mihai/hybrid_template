@@ -52,6 +52,9 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 - [Devise](https://github.com/heartcombo/devise): Flexible authentication solution for Rails based on Warden.
 - [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt): Adds stateless token-based authentication to Devise using JSON Web Tokens (JWT) for secure API authentication.
 
+### Pagination
+- [Pagy](https://github.com/ddnexus/pagy): A fast, efficient, and lightweight pagination gem for Rails, providing easy customization and flexibility with minimal overhead.
+
 ### Background Processing
 - [Sidekiq](https://github.com/mperham/sidekiq): Efficient background processing for Ruby applications.
 - [Redis](https://github.com/redis/redis-rb): In-memory data structure store used by Sidekiq for managing background job queues, scheduling, and retries.

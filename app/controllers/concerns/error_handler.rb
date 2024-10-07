@@ -18,7 +18,7 @@ module ErrorHandler
       error!({ errors: { status: I18n.t("errors.bad_request"), code: 400, message: exception.message } }, 400)
     end
 
-    # JWT-specific errors
+    # JWT-specific errors from devise-jwt or plain JWT
     rescue_from JWT::ExpiredSignature do |_e|
       error!({ errors: { status: "Unauthorized", message: "Token has expired" } }, 401)
     end
