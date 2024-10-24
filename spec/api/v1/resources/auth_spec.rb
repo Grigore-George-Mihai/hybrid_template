@@ -3,20 +3,20 @@
 require "rails_helper"
 
 RSpec.describe "Auth API", type: :request do
-  let(:valid_user) { create(:user, password: "password123") }
+  let(:valid_user) { create(:user, password: "Password123!", password_confirmation: "Password123!") }
   let(:valid_attributes) do
     {
       first_name: "John",
       last_name: "Doe",
       email: "johndoe@example.com",
-      password: "password123",
-      password_confirmation: "password123"
+      password: "Password123!",
+      password_confirmation: "Password123!"
     }
   end
 
   describe "POST /api/v1/auth/login" do
     it "logs in and returns a JWT token" do
-      post "/api/v1/auth/login", params: { email: valid_user.email, password: "password123" }
+      post "/api/v1/auth/login", params: { email: valid_user.email, password: "Password123!" }
       expect(response).to have_http_status(:created)
       expect(response_body[:auth]).to include(:token)
     end

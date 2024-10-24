@@ -8,8 +8,7 @@
         data-bs-target="#navbarHeader"
         aria-controls="navbarHeader"
         aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+        aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
 
@@ -20,16 +19,30 @@
           </li>
         </ul>
 
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <%= link_to "Swagger", grape_swagger_rails_path, class: "nav-link btn btn-link d-inline p-0 pe-3"%>
-          </li>
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link btn btn-link d-inline p-0", form: { "data-turbo": "true" } %>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Options
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <% if current_user.admin? %>
+                  <li><%= link_to "Admin", admin_root_path, class: "dropdown-item" %></li>
+                <% end %>
+                <li><%= link_to "Swagger", grape_swagger_rails_path, class: "dropdown-item" %></li>
+                <li>
+                  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item", form: { "data-turbo": "true" } %>
+                </li>
+              </ul>
             </li>
-          <% end %>
-        </ul>
+          </ul>
+        <% end %>
       </div>
     </div>
   </nav>

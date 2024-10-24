@@ -28,6 +28,49 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "Enums" do
+    it "defines roles with correct values" do
+      expect(described_class.roles).to eq("user" => 0, "admin" => 1)
+    end
+  end
+
+  describe "#ransackable_attributes" do
+    it "returns the correct ransackable attributes" do
+      expect(described_class.ransackable_attributes).to match_array(%w[first_name last_name email role])
+    end
+  end
+
+  describe "#password_required?" do
+    context "when the user is a new record" do
+      it "returns true" do
+        new_user = build(:user)
+        expect(new_user.password_required?).to be(true)
+      end
+    end
+
+    context "when the password is present" do
+      it "returns true" do
+        user.password = "newpassword"
+        expect(user.password_required?).to be(true)
+      end
+    end
+
+    context "when the password confirmation is present" do
+      it "returns true" do
+        user.password_confirmation = "newpassword"
+        expect(user.password_required?).to be(true)
+      end
+    end
+
+    context "when password and confirmation are not present for an existing user" do
+      it "returns false" do
+        user.password = nil
+        user.password_confirmation = nil
+        expect(user.password_required?).to be(false)
+      end
+    end
+  end
+
   describe "JWT functionality" do
     let(:token) { Warden::JWTAuth::UserEncoder.new.call(user, :user, nil).first }
 

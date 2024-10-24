@@ -1,0 +1,6 @@
+en:
+  active_admin:
+    hints:
+      password: "Leave blank if you don't want to change it"
+    flash:
+      unauthorized: "You are not authorized to access this page."

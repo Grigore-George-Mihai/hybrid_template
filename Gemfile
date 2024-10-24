@@ -9,21 +9,31 @@ gem "font-awesome-sass", "~> 6.5.2"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pagy"
-gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "rails", "~> 7.2.1"
 gem "redis"
 gem "sassc-rails"
-gem "sidekiq"
 gem "simple_form"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
+# BackgroundJob and Scheduling
+gem "sidekiq"
+gem "sidekiq-scheduler"
+
+# Database and Performance Tracking
+gem "pg", "~> 1.1"
+gem "pghero"
+
 # Authentication
 gem "devise"
 gem "devise-jwt"
+
+# ActiveAdmin
+gem "activeadmin"
+gem "activeadmin_addons"
 
 # Performance and Error Tracking
 gem "rollbar"

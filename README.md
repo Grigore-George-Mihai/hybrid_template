@@ -27,8 +27,7 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 
 - Update the project name to reflect your application.
 - A basic implementation of [Devise](https://github.com/heartcombo/devise) for web logins and [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt) for API authentication is included. You can modify the configuration as needed to suit your specific authentication requirements.
-- Modify the [Scout APM](https://github.com/scoutapp/scout_apm_ruby) settings as needed, or remove it if performance tracking is not required.
-- Modify the [Rollbar](https://github.com/rollbar/rollbar-gem) settings as needed, or remove it if error tracking is not required.
+- Modify or remove the settings for [Scout APM](https://github.com/scoutapp/scout_apm_ruby), [Rollbar](https://github.com/rollbar/rollbar-gem), and [PgHero](https://github.com/ankane/pghero) as needed, based on your performance, error tracking, and database monitoring requirements.
 - Run the following rake task to create your environment files:
     ```bash
     rake env:setup
@@ -41,6 +40,10 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 
 ## Gems
 
+### Database and Monitoring
+- [pg](https://github.com/ged/ruby-pg): PostgreSQL driver for Ruby, providing fast and efficient database connectivity.
+- [PgHero](https://github.com/ankane/pghero): A tool for monitoring PostgreSQL database performance, including query insights, index suggestions, and table size analysis.
+
 ### Grape
 - [Grape](https://github.com/ruby-grape/grape): A REST-like API framework for Ruby that is designed to run on Rack or complement existing web application frameworks like Rails.
 - [Grape Entity](https://github.com/ruby-grape/grape-entity): A framework-agnostic entity layer to decorate and serialize data objects for API responses.
@@ -52,11 +55,16 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 - [Devise](https://github.com/heartcombo/devise): Flexible authentication solution for Rails based on Warden.
 - [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt): Adds stateless token-based authentication to Devise using JSON Web Tokens (JWT) for secure API authentication.
 
+### Admin Interface
+- [ActiveAdmin](https://github.com/activeadmin/activeadmin): A flexible and extensible admin framework for Ruby on Rails applications, making it easy to build custom admin panels.
+- [ActiveAdmin Addons](https://github.com/platanus/activeadmin_addons): Enhances ActiveAdmin with additional features like input widgets, searchable selects, and improved UI components for better admin interfaces.
+
 ### Pagination
 - [Pagy](https://github.com/ddnexus/pagy): A fast, efficient, and lightweight pagination gem for Rails, providing easy customization and flexibility with minimal overhead.
 
 ### Background Processing
 - [Sidekiq](https://github.com/mperham/sidekiq): Efficient background processing for Ruby applications.
+- [Sidekiq-Scheduler](https://github.com/moove-it/sidekiq-scheduler): Extends Sidekiq to support scheduled and recurring jobs using a simple configuration.
 - [Redis](https://github.com/redis/redis-rb): In-memory data structure store used by Sidekiq for managing background job queues, scheduling, and retries.
 
 ### Decorator and Forms

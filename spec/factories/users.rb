@@ -5,7 +5,8 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name  { Faker::Name.last_name }
     email      { Faker::Internet.email }
-    password   { "password123" }
-    password_confirmation { "password123" }
+    password   { "Password123!" }
+    password_confirmation { "Password123!" }
+    role { :user }
   end
 end
