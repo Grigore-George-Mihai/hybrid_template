@@ -314,7 +314,7 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.8)
+    pg (1.5.9)
     pghero (3.6.1)
       activerecord (>= 6.1)
     popper_js (2.11.8)
@@ -565,7 +565,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pagy
-  pg (~> 1.1)
+  pg (~> 1.5)
   pghero
   puma (>= 5.0)
   rack-mini-profiler
