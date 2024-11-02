@@ -5,7 +5,6 @@ import "controllers"
 import "jquery"
 import "@popperjs/core";
 import "bootstrap"
-import "jquery-ui"
 
 // jQuery globally available
 window.$ = $

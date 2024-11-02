@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  subject(:user) { create(:user) }
+  let(:user) { create(:user) }
 
   describe "validations" do
     %i[first_name last_name email].each do |attribute|
