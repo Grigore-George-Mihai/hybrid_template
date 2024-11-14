@@ -14,6 +14,10 @@ class User < ApplicationRecord
     %w[first_name last_name email role]
   end
 
+  def self.ransackable_associations(_auth_object = nil)
+    []
+  end
+
   def password_required?
     new_record? || password.present? || password_confirmation.present?
   end

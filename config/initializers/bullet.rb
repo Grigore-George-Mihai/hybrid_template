@@ -6,6 +6,7 @@ if defined?(Bullet)
   Bullet.console = true
   Bullet.rails_logger = true
   Bullet.add_footer = true
+  Bullet.rollbar = true
 
   Bullet.alert = true if Rails.env.development?
 

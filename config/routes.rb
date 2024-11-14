@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     mount PgHero::Engine => "/pghero"
   end
 
-  mount GrapeSwaggerRails::Engine => "/swagger"
+  mount GrapeSwaggerRails::Engine => "/swagger" if Rails.env.development?
 
   # Define root route
   root "home#index"

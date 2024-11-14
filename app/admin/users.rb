@@ -5,7 +5,8 @@ ActiveAdmin.register User do
 
   filter :first_name_cont, as: :string
   filter :last_name_cont, as: :string
-  filter :email
+  filter :email_cont, as: :string
+  filter :role, as: :select, collection: User.roles.keys
   filter :created_at
 
   index do
@@ -38,13 +39,8 @@ ActiveAdmin.register User do
       f.input :last_name
       f.input :email
       f.input :role, as: :select, collection: User.roles.keys
-      if f.object.new_record?
-        f.input :password
-        f.input :password_confirmation
-      else
-        f.input :password, hint: I18n.t("active_admin.hints.password")
-        f.input :password_confirmation, hint: I18n.t("active_admin.hints.password")
-      end
+      f.input :password, hint: (I18n.t("active_admin.hints.password") unless f.object.new_record?)
+      f.input :password_confirmation, hint: (I18n.t("active_admin.hints.password") unless f.object.new_record?)
     end
     f.actions
   end

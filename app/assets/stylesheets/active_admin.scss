@@ -12,7 +12,12 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
-// Overriding any non-variable Sass must be done after the fact.
-// For example, to change the default status-tag color:
-//
-//   .status_tag { background: #6090DB; }
+// Custom
+.sidebar_section input[type=text],
+.sidebar_section input[type=password],
+.sidebar_section input[type=email],
+.sidebar_section input[type=url],
+.sidebar_section input[type=tel],
+.sidebar_section textarea {
+  width: 100%;
+}

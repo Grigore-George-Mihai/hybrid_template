@@ -41,7 +41,7 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 ## Gems
 
 ### Database and Monitoring
-- [pg](https://github.com/ged/ruby-pg): PostgreSQL driver for Ruby, providing fast and efficient database connectivity.
+- [Pg](https://github.com/ged/ruby-pg): PostgreSQL driver for Ruby, providing fast and efficient database connectivity.
 - [PgHero](https://github.com/ankane/pghero): A tool for monitoring PostgreSQL database performance, including query insights, index suggestions, and table size analysis.
 
 ### Grape
