@@ -3,9 +3,10 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 import "jquery"
-import "@popperjs/core";
+import "@popperjs/core"
 import "bootstrap"
+import "select2"
 
-// jQuery globally available
-window.$ = $
-window.jQuery = $
+document.addEventListener('DOMContentLoaded', () => {
+	$('.select2').select2();
+});

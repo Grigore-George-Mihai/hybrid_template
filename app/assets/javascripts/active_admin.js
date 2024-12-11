@@ -1,2 +1,6 @@
 //= require active_admin/base
-//= require activeadmin_addons/all
+//= require select2.min
+
+document.addEventListener('DOMContentLoaded', () => {
+	$('.select2').select2();
+});

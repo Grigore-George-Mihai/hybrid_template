@@ -57,7 +57,6 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 
 ### Admin Interface
 - [ActiveAdmin](https://github.com/activeadmin/activeadmin): A flexible and extensible admin framework for Ruby on Rails applications, making it easy to build custom admin panels.
-- [ActiveAdmin Addons](https://github.com/platanus/activeadmin_addons): Enhances ActiveAdmin with additional features like input widgets, searchable selects, and improved UI components for better admin interfaces.
 
 ### Pagination
 - [Pagy](https://github.com/ddnexus/pagy): A fast, efficient, and lightweight pagination gem for Rails, providing easy customization and flexibility with minimal overhead.
@@ -78,9 +77,6 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 
 ### Error Tracking
 - [Rollbar](https://github.com/rollbar/rollbar-gem): Real-time error tracking and reporting.
-
-### Debugging
-- [Byebug](https://github.com/deivid-rodriguez/byebug): Debugging tool for Ruby applications.
 
 ### Code Quality & Linting
 - [Rubocop Rails Suite](https://github.com/Grigore-George-Mihai/rubocop-rails-suite): A custom suite that bundles Rubocop with various plugins for Rails projects.
