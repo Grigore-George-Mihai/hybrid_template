@@ -192,7 +192,7 @@ GEM
     ffi (1.17.1-x86-linux-gnu)
     ffi (1.17.1-x86_64-darwin)
     ffi (1.17.1-x86_64-linux-gnu)
-    font-awesome-sass (6.5.2)
+    font-awesome-sass (6.7.2)
       sassc (~> 2.0)
     formtastic (5.0.0)
       actionpack (>= 6.0.0)
@@ -547,7 +547,7 @@ DEPENDENCIES
   draper
   factory_bot_rails
   faker
-  font-awesome-sass (~> 6.5.2)
+  font-awesome-sass (~> 6.7.2)
   grape
   grape-entity
   grape-swagger
