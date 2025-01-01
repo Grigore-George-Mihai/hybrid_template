@@ -5,7 +5,7 @@ source "https://rubygems.org"
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.3.3"
 gem "draper"
-gem "font-awesome-sass", "~> 6.5.2"
+gem "font-awesome-sass", "~> 6.7.2"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pagy"
