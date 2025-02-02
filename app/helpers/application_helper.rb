@@ -9,6 +9,6 @@ module ApplicationHelper
       error: "danger",
       alert: "warning",
       notice: "info"
-    }.fetch(flash_type.to_sym, :dark)
+    }.fetch(flash_type.to_sym, "dark")
   end
 end
