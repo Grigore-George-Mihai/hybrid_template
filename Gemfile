@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.3.3"
 gem "draper"
-gem "font-awesome-sass", "~> 6.5.2"
+gem "font-awesome-sass"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pagy"

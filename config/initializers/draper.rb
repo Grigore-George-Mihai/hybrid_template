@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 if defined?(Draper)
   Draper.configure do |config|
     # Set the default controller for decorators
