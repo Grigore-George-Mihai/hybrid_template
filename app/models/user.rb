@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def password_required?
     new_record? || password.present? || password_confirmation.present?
   end
+
+  def full_name
+    [first_name, last_name].compact.join(" ")
+  end
 end

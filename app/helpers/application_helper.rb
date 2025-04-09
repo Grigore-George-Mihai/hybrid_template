@@ -8,7 +8,10 @@ module ApplicationHelper
       success: "success",
       error: "danger",
       alert: "warning",
-      notice: "info"
+      notice: "info",
+      warning: "warning",
+      danger: "danger",
+      info: "info"
     }.fetch(flash_type.to_sym, "dark")
   end
 end

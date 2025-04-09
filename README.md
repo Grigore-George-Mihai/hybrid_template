@@ -66,8 +66,7 @@ git clone https://github.com/Grigore-George-Mihai/hybrid_template
 - [Sidekiq-Scheduler](https://github.com/moove-it/sidekiq-scheduler): Extends Sidekiq to support scheduled and recurring jobs using a simple configuration.
 - [Redis](https://github.com/redis/redis-rb): In-memory data structure store used by Sidekiq for managing background job queues, scheduling, and retries.
 
-### Decorator and Forms
-- [Draper](https://github.com/drapergem/draper): Helps in decorating models with additional presentation logic.
+### Forms
 - [Simple Form](https://github.com/heartcombo/simple_form): Simplifies form creation with a clean and flexible syntax.
 
 ### Performance Monitoring
