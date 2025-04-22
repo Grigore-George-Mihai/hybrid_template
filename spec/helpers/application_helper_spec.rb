@@ -4,12 +4,21 @@ require "rails_helper"
 
 RSpec.describe ApplicationHelper, type: :helper do
   describe "#bootstrap_class_for" do
-    it "returns the correct Bootstrap class" do
-      expect(helper.bootstrap_class_for(:success)).to eq("success")
-      expect(helper.bootstrap_class_for(:error)).to eq("danger")
-      expect(helper.bootstrap_class_for(:alert)).to eq("warning")
-      expect(helper.bootstrap_class_for(:notice)).to eq("info")
-      expect(helper.bootstrap_class_for(:unknown)).to eq("dark")
+    {
+      primary: "primary",
+      secondary: "secondary",
+      success: "success",
+      error: "danger",
+      alert: "warning",
+      notice: "info",
+      warning: "warning",
+      danger: "danger",
+      info: "info",
+      unknown: "dark"
+    }.each do |key, value|
+      it "returns '#{key}' for :#{value}" do
+        expect(helper.bootstrap_class_for(key)).to eq(value)
+      end
     end
   end
 end
