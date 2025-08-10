@@ -3,11 +3,10 @@
 module Pg
   class CaptureQueryStatsJob
     include Sidekiq::Job
+    sidekiq_options queue: :maintenance, retry: 3
 
     def perform
-      Rake::Task.clear
-      Rails.application.load_tasks
-      Rake::Task["pghero:capture_query_stats"].invoke
+      PgHero.capture_query_stats
     end
   end
 end

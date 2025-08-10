@@ -3,33 +3,23 @@
 require "rails_helper"
 
 RSpec.describe Pg::ClearQueryStatsJob, type: :job do
-  let(:rake_task) { instance_double(Rake::Task) }
-
-  before do
-    allow(Rake::Task).to receive(:clear)
-    allow(Rails.application).to receive(:load_tasks)
-    allow(Rake::Task).to receive(:[]).with("pghero:clean_query_stats").and_return(rake_task)
-    allow(rake_task).to receive(:invoke)
-  end
+  before { described_class.jobs.clear }
 
   it "enqueues the job" do
-    expect do
-      described_class.perform_async
-    end.to change(described_class.jobs, :size).by(1)
+    expect { described_class.perform_async }.to change(described_class.jobs, :size).by(1)
   end
 
-  it "clears the Rake tasks" do
+  it "calls PgHero.clean_query_stats" do
+    allow(PgHero).to receive(:clean_query_stats)
+
     described_class.new.perform
-    expect(Rake::Task).to have_received(:clear)
+
+    expect(PgHero).to have_received(:clean_query_stats)
   end
 
-  it "loads the Rake tasks" do
-    described_class.new.perform
-    expect(Rails.application).to have_received(:load_tasks)
-  end
-
-  it "invokes the pghero clean query stats task" do
-    described_class.new.perform
-    expect(rake_task).to have_received(:invoke)
+  it "uses the maintenance queue and retries 3 times" do
+    opts = described_class.get_sidekiq_options
+    expect(opts["queue"]).to eq(:maintenance)
+    expect(opts["retry"]).to eq(3)
   end
 end

@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: hybrid_template_production
-  username: hybrid_template
-  password: <%= ENV["HYBRID_TEMPLATE_DATABASE_PASSWORD"] %>
+  username: <%= ENV["PROD_DATABASE_USERNAME"] %>
+  password: <%= ENV["PROD_DATABASE_PASSWORD"] %>

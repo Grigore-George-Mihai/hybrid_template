@@ -190,8 +190,7 @@ ActiveAdmin.setup do |config|
   config.localize_format = :long
 
   # == Setting a Favicon
-  #
-  # config.favicon = 'favicon.ico'
+  config.favicon = "favicon.ico"
 
   # == Meta Tags
   meta_tags_options = { viewport: "width=device-width, initial-scale=1" }
