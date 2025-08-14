@@ -3,6 +3,7 @@
 module Pg
   class CaptureQueryStatsJob
     include Sidekiq::Job
+
     sidekiq_options queue: :maintenance, retry: 3
 
     def perform
