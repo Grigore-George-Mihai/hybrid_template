@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.2].define(version: 2024_10_23_111240) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "pghero_query_stats", force: :cascade do |t|
@@ -21,7 +22,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_23_111240) do
     t.bigint "query_hash"
     t.float "total_time"
     t.bigint "calls"
-    t.datetime "captured_at", precision: nil
+    t.datetime "captured_at", precision: nil, null: false
     t.index ["database", "captured_at"], name: "index_pghero_query_stats_on_database_and_captured_at"
   end
 
@@ -33,12 +34,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_23_111240) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "jti", null: false
+    t.integer "role", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "jti", null: false
-    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role"], name: "index_users_on_role"
   end
 end

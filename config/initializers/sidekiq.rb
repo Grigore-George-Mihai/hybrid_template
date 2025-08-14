@@ -4,7 +4,7 @@ Sidekiq.configure_server do |config|
   config.redis = sidekiq_config
 
   config.concurrency = 5
-  config.queues = %w[critical default mailers]
+  config.queues = %w[critical default mailers maintenance]
 end
 
 Sidekiq.configure_client do |config|

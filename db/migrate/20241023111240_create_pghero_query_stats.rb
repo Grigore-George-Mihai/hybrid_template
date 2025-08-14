@@ -1,5 +1,7 @@
 class CreatePgheroQueryStats < ActiveRecord::Migration[7.2]
   def change
+    enable_extension "pg_stat_statements" unless extension_enabled?("pg_stat_statements")
+
     create_table :pghero_query_stats do |t|
       t.text :database
       t.text :user
@@ -7,7 +9,7 @@ class CreatePgheroQueryStats < ActiveRecord::Migration[7.2]
       t.integer :query_hash, limit: 8
       t.float :total_time
       t.integer :calls, limit: 8
-      t.timestamp :captured_at
+      t.timestamp :captured_at, null: false
     end
 
     add_index :pghero_query_stats, %i[database captured_at]

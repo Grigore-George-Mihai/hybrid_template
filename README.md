@@ -51,6 +51,7 @@ bin/rails db:seed      # Loads seed data
 - [Devise](https://github.com/heartcombo/devise) — Adjust configuration in `config/initializers/devise.rb` if needed.
 - [Scout APM](https://github.com/scoutapp/scout_apm_ruby) — Add your SCOUT_KEY value in .env.development (or the appropriate .env file) to enable. If left blank, ScoutAPM stays disabled.
 - [Rollbar](https://github.com/rollbar/rollbar-gem) — Add your ROLLBAR_ACCESS_TOKEN value in .env.development (or the appropriate .env file) to enable. If left blank, Rollbar stays disabled.
+- [PgHero](https://github.com/ankane/pghero) - Add `shared_preload_libraries = 'pg_stat_statements'` to `postgresql.conf` and restart the database. if left blank, PgHero stays disabled.
 
  ✅ You’re now ready to start development!
 
