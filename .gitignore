@@ -30,6 +30,7 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+# Ignore assets
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
