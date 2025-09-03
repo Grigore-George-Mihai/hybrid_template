@@ -57,13 +57,15 @@ group :development, :test do
   # Security
   gem "brakeman", require: false
   gem "bundler-audit", require: false
+
+  # Performance
+  gem "bullet"
 end
 
 group :development do
   gem "web-console"
 
   # Performance
-  gem "bullet"
   gem "rack-mini-profiler", require: false
 end
 

@@ -20,3 +20,7 @@ module HelpersConfig
     response_body
   end
 end
+
+RSpec.configure do |config|
+  config.include HelpersConfig, type: :request
+end
