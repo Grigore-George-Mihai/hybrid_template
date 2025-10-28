@@ -8,5 +8,10 @@ AllCops:
   TargetRubyVersion: 3.4
 
 # Custom
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/simple_form.rb'
+
 Rails/EnumHash:
   Enabled: false
