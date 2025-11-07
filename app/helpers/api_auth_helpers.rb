@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApiAuthHelpers
-  include Pagy::Backend
+  include Pagy::Method
 
   def current_user
     auth_header = request.headers["Authorization"]
@@ -16,11 +16,19 @@ module ApiAuthHelpers
   end
 
   def paginated_response(collection, entity)
-    pagy, records = pagy(collection, page: params[:page], limit: params[:per_page])
+    pagy_opts = { page: params[:page], limit: params[:per_page] }.compact
+    pagy, records = pagy(collection, **pagy_opts)
 
     {
       collection.model_name.plural => entity.represent(records, root: false),
-      pagy: pagy_metadata(pagy).slice(:count, :page, :limit, :pages, :prev_url, :next_url)
+      pagy: {
+        count: pagy.count,
+        page: pagy.page,
+        limit: pagy.limit,
+        pages: pagy.pages,
+        prev_url: pagy.page_url(:previous),
+        next_url: pagy.page_url(:next)
+      }
     }
   end
 end
