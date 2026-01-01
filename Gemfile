@@ -21,7 +21,7 @@ gem "sidekiq"
 gem "sidekiq-scheduler"
 
 # Database and Performance Tracking
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.6"
 gem "pghero"
 
 # Authentication
