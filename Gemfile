@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "bootsnap", require: false
-gem "bootstrap", "~> 5.3.3"
+gem "bootstrap", "~> 5.3.8"
 gem "font-awesome-sass"
 gem "importmap-rails"
 gem "jbuilder"

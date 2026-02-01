@@ -97,7 +97,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.20.1)
       msgpack (~> 1.2)
-    bootstrap (5.3.5)
+    bootstrap (5.3.8)
       popper_js (>= 2.11.8, < 3)
     brakeman (7.1.2)
       racc
@@ -553,7 +553,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   bootsnap
-  bootstrap (~> 5.3.3)
+  bootstrap (~> 5.3.8)
   brakeman
   bullet
   bundler-audit
