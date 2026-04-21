@@ -21,7 +21,7 @@ gem "sidekiq"
 gem "sidekiq-scheduler"
 
 # Database and Performance Tracking
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.5"
 gem "pghero"
 
 # Authentication
@@ -45,6 +45,7 @@ gem "grape-swagger-rails"
 group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "dotenv-rails"
+  gem "minitest", "< 6"
 
   # Code Quality & Linting
   gem "rubocop-rails-suite", require: false
@@ -52,7 +53,7 @@ group :development, :test do
   # Rspec
   gem "factory_bot_rails"
   gem "faker"
-  gem "rspec-rails", "~> 8.0.2"
+  gem "rspec-rails", "~> 8.0"
 
   # Security
   gem "brakeman", require: false

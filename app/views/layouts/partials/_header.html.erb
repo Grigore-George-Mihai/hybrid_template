@@ -1,41 +1,60 @@
 <header data-controller="navigation">
-  <nav class="navbar navbar-expand-lg bg-body">
+  <nav class="navbar navbar-expand-lg bg-body border-bottom">
     <div class="container">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarHeader"
-        aria-controls="navbarHeader"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
+      <% if user_signed_in? %>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      <% end %>
 
       <div class="collapse navbar-collapse" id="navbarHeader">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <%= link_to "Home", root_path, class: "nav-link", data: { navigation_target: "link" } %>
-          </li>
-        </ul>
-
         <% if user_signed_in? %>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to "Home", root_path, class: "nav-link", data: { navigation_target: "link" } %>
+            </li>
+          </ul>
+
           <ul class="navbar-nav ms-auto">
+            <% if current_user.admin? %>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="adminDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Admin
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                  <li><%= link_to "Admin Panel", admin_root_path, class: "dropdown-item", target: "_blank", rel: "noopener" %></li>
+                  <li><%= link_to "Sidekiq", sidekiq_web_path, class: "dropdown-item", target: "_blank", rel: "noopener" %></li>
+                  <li><%= link_to "Swagger", grape_swagger_rails_path, class: "dropdown-item", target: "_blank", rel: "noopener" %></li>
+                </ul>
+              </li>
+            <% end %>
+
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
-                id="navbarDropdown"
+                id="accountDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Options
+                Account
               </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <% if current_user.admin? %>
-                  <li><%= link_to "Admin", admin_root_path, class: "dropdown-item", data: { navigation_target: "link" } %></li>
-                <% end %>
-		<li><%= link_to "Swagger", grape_swagger_rails_path, class: "dropdown-item" %></li>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                <li class="dropdown-item-text small text-muted"><%= current_user.email %></li>
+                <li><hr class="dropdown-divider"></li>
                 <li><%= link_to "Profile", edit_user_registration_path, class: "dropdown-item", data: { navigation_target: "link" } %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %></li>
               </ul>

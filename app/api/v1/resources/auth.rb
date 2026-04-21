@@ -19,6 +19,7 @@ module V1
 
             error!("Token generation failed", 500) unless token
 
+            status 200
             present :auth, { token:, user: }, with: V1::Entities::AuthEntity
           else
             error!("Unauthorized", 401)

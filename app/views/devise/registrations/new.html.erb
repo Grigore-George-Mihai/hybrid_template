@@ -1,19 +1,39 @@
-<h2>Sign up</h2>
+<% content_for :title, "Sign up" %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class="auth-wrapper">
+  <div class="card auth-card border-0 shadow-sm">
+    <div class="card-body p-4 p-md-5">
+      <h1 class="h3 fw-bold text-center mb-1">Create your account</h1>
+      <p class="text-muted text-center mb-4">Start building with the Hybrid Template.</p>
 
-  <div class="form-inputs">
-    <%= f.input :first_name, input_html: { autocomplete: "first name" }%>
-    <%= f.input :last_name, input_html: { autocomplete: "last name" }%>
-    <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }%>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+                          html: { class: "auth-form" }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <%= f.input :first_name, input_html: { autocomplete: "given-name", class: "form-control form-control-lg" } %>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.input :last_name, input_html: { autocomplete: "family-name", class: "form-control form-control-lg" } %>
+          </div>
+        </div>
+
+        <%= f.input :email, required: true, autofocus: true,
+                    input_html: { autocomplete: "email", class: "form-control form-control-lg" } %>
+        <%= f.input :password, required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password", class: "form-control form-control-lg" } %>
+        <%= f.input :password_confirmation, required: true,
+                    input_html: { autocomplete: "new-password", class: "form-control form-control-lg" } %>
+
+        <%= f.button :submit, "Sign up", class: "btn btn-accent btn-lg w-100 mt-2" %>
+      <% end %>
+
+      <div class="auth-links text-center mt-4 small">
+        Already have an account?
+        <%= link_to "Log in", new_session_path(resource_name), class: "text-decoration-none ms-1" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

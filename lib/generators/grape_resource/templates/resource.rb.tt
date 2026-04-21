@@ -14,7 +14,7 @@ module <%= version.camelize %>
           optional :per_page, type: Integer, desc: "Number of <%= file_name.pluralize %> per page"
         end
         get do
-          result = paginated_response(<%= class_name %>.all, <%= version.camelize %>::Entities::<%= class_name %>Entity)
+          result = paginated_response(<%= class_name %>.order(:id), <%= version.camelize %>::Entities::<%= class_name %>Entity)
           present result
         end
 
