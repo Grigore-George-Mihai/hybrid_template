@@ -45,7 +45,7 @@ gem "grape-swagger-rails"
 group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "dotenv-rails"
-  gem "minitest", "< 6"
+  gem "minitest", "< 7"
 
   # Code Quality & Linting
   gem "rubocop-rails-suite", require: false
